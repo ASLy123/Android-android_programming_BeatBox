@@ -3,6 +3,7 @@ package com.bignerdranch.example.beatbox
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
