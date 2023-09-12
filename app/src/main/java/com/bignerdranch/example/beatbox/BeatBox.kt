@@ -13,18 +13,25 @@ private const val SOUNDS_FOLDER = "sample_sounds"   //存储声音资源文件�
 private const val MAX_SOUNDS = 5
 class BeatBox (private val assets: AssetManager){
     val sounds: List<Sound>
+    private var rate: Float = 1.0f
     private val soundPool = SoundPool.Builder() //实现音频播放功能
         .setMaxStreams(MAX_SOUNDS)              //同时播放多少个音频
         .build()
     init {
         sounds = loadSounds()
     }
+
+    fun setRate(rate: Float){
+        this.rate = rate
+    }
+
     fun play(sound: Sound){         //播放音频
         sound.soundId?.let {
-            soundPool.play(it, 1.0f, 1.0f, 1, 0, 1.0f)
+            soundPool.play(it, 1.0f, 1.0f, 1, 0, rate)
             //音频ID、左音量、右音量、优先级（无效）、是否循环和播放速率
         }
     }
+
 
     fun release(){              //释放SoundPool
         soundPool.release()
